@@ -1,0 +1,281 @@
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 101; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  overflow: hidden;
+}
+
+.modal-content {
+  width: 90%;
+  background-color: white;
+  padding: 8% 5%;
+  border-radius: 2vw;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media only screen and (min-width: 600px) {
+    border-radius: 0.5vw;
+  }
+}
+
+#modal-close-icon {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+}
+
+/* SUCCESS MODAL */
+#success-modal {
+  display: none;
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @media only screen and (min-width: 600px) {
+      width: 35%;
+      padding: 3%;
+    }
+
+    img {
+      @media only screen and (min-width: 600px) {
+        width: 20%;
+        margin-bottom: 5%;
+      }
+    }
+  }
+}
+
+/* SELECTION MODAL */
+#selection-modal {
+  display: none;
+  position: absolute;
+
+  .modal-content {
+    flex-direction: column;
+    position: absolute;
+    top: 130vh;
+
+    @media only screen and (min-width: 600px) {
+      width: 50%;
+      padding: 3%;
+      top: 80vh;
+    }
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.selection-modal-card {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 2vw;
+  margin-bottom: 5%;
+
+  @media only screen and (min-width: 600px) {
+    border-radius: 0.5vw;
+  }
+
+  h3 {
+    margin: 0;
+    transition: 0.3s ease;
+
+    @media only screen and (min-width: 600px) {
+      line-height: 2rem;
+    }
+  }
+
+  h4 {
+    margin: 0;
+    line-height: 2rem;
+  }
+
+  p {
+    grid-row: 2;
+    grid-column: 1 / span 4;
+
+    @media only screen and (min-width: 600px) {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  .figure-text {
+    font-size: 1.5rem;
+  }
+
+  .units-left {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
+}
+
+.selection-modal-card-details {
+  padding: 8%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  border-bottom: 2px solid rgba($color: #000000, $alpha: 0);
+  transition: 0.5s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover h3 {
+    color: $moderate-cyan;
+    cursor: pointer;
+  }
+
+  &:hover .selection-checkbox {
+    border-color: $moderate-cyan;
+  }
+
+  @media only screen and (min-width: 600px) {
+    padding: 5%;
+    grid-template-columns: 1fr 9fr 1fr;
+
+    .units-left {
+      grid-row: 1;
+      grid-column: 3;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.selection-checkbox {
+  transition: 0.3s ease; /* checked animation */
+}
+
+.selection-modal-card-title {
+  width: 100%;
+  grid-column: 2;
+  grid-row: 1;
+
+  @media only screen and (min-width: 600px) {
+    display: flex;
+
+    h4 {
+      margin-left: 3%;
+    }
+  }
+}
+
+.selection-modal-card-pledge-content {
+  visibility: hidden;
+  opacity: 0;
+  padding: 0;
+  text-align: center;
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  display: flex;
+  max-height: 0;
+  flex-direction: column;
+
+  @media only screen and (min-width: 600px) {
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  p {
+    margin: 0;
+
+    @media only screen and (min-width: 600px) {
+      line-height: 3rem;
+      margin-left: 5%;
+      /* Margin left added here to remove left and right padding of 
+      selection-modal-card-pledge-content, 
+      to achieve smoother slide down effect */
+    }
+  }
+}
+
+.pledge-amount {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+  padding: 0 8%;
+  margin-right: 0;
+  /* Margin left added here to remove left and right padding of 
+  selection-modal-card-pledge-content, 
+  to achieve smoother slide down effect */
+
+  @media only screen and (min-width: 600px) {
+    margin: 0;
+    margin-right: 5%;
+    padding: 0;
+    /* Margin left added here to remove left and right padding of 
+    selection-modal-card-pledge-content, 
+    to achieve smoother slide down effect */
+  }
+
+  p {
+    position: absolute;
+    left: 15%;
+    top: 32%;
+    line-height: normal;
+    font-weight: 500;
+    color: rgba($color: #000000, $alpha: 0.5);
+
+    @media only screen and (min-width: 600px) {
+      left: 5%;
+    }
+  }
+
+  input {
+    box-shadow: none;
+    border: 2px solid rgba($color: #000000, $alpha: 0.1);
+    border-radius: 10vw;
+    width: 40%;
+    text-align: center;
+    outline: none;
+    transition: 0.5s ease;
+
+    &:focus {
+      border: 2px solid $moderate-cyan;
+      caret-color: $moderate-cyan;
+    }
+  }
+}
+
+// Selected
+.selected {
+  border-color: $moderate-cyan;
+
+  .check {
+    display: block;
+  }
+
+  .selection-modal-card-details {
+    border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+    pointer-events: none;
+  }
+
+  .selection-modal-card-pledge-content {
+    padding: 8% 0;
+    visibility: visible;
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 1s ease-out, visibility 1s ease-out,
+      opacity 1s ease-out, padding 0.5s ease;
+
+    @media only screen and (min-width: 600px) {
+      padding: 3% 0;
+    }
+  }
+}
